@@ -9,6 +9,6 @@ environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.mingw.exe.debug.1584752598/appendContributed=true
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.1584752598/LIBRARY_PATH/delimiter=;
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.1584752598/LIBRARY_PATH/operation=replace
-environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.1584752598/LIBRARY_PATH/value=C\:\\MinGW\\lib
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.1584752598/LIBRARY_PATH/value=C\:\\mingw64\\lib;C\:\\mingw64\\x86_64-w64-mingw32\\lib;C\:\\MinGW\\lib
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.1584752598/append=true
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.mingw.exe.debug.1584752598/appendContributed=true

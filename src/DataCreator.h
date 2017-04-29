@@ -8,7 +8,7 @@
 #ifndef SRC_DATACREATOR_H_
 #define SRC_DATACREATOR_H_
 
-#define FILEFOLDER "file"
+#define FILEFOLDER "data"
 
 #include<vector>
 #include<string>

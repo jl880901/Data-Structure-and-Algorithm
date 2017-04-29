@@ -26,10 +26,15 @@ template<class T> void SortAlgorithms<T>::QuickSort(vector<T>& data) {
 
 template<class T> void SortAlgorithms<T>::QuickSortHelper(vector<T> &data,
 		int left, int right) {
+	//terminal condition
 	if (left >= right) // elements = 0 or 1, return
 		return;
+
+	// step1 compare with pivot
 	int pivot = (left + right) / 2;
 	this->QuickSortPartition(data, left, right, pivot);
+
+	// step2 divide array
 	this->QuickSortHelper(data, left, pivot - 1);
 	this->QuickSortHelper(data, pivot + 1, right);
 }
@@ -95,6 +100,13 @@ template<class T> void SortAlgorithms<T>::HeapSort(vector<T>& data) {
 }
 
 template<class T> void SortAlgorithms<T>::BubbleSort(vector<T>& data) {
+	int size = data.size();
+	for(int i = 0; i < size; i++){
+		for(int j = 0; j < size - i - 1; j++){
+			if(data[j] > data[j + 1])
+				this->SwapByIndex(data, j, j + 1);
+		}
+	}
 }
 
 template<class T> void SortAlgorithms<T>::InsertionSort(vector<T>& data) {
@@ -119,7 +131,8 @@ template<class T> void SortAlgorithms<T>::Swap(vector<T> &data, T& element1,
 
 template<class T> void SortAlgorithms<T>::PrintData(vector<T>& data,
 		char split) {
-	for (int i = 0; i < data.size(); i++)
+	int size = data.size();
+	for (int i = 0; i < size; i++)
 		cout << data[i] << split;
 
 	cout << endl;
