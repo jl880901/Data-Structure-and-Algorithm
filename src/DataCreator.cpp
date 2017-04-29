@@ -14,7 +14,7 @@ using namespace std;
 
 DataCreator::DataCreator() {
 	// TODO Auto-generated constructor stub
-
+	this->size = 0;
 }
 
 DataCreator::DataCreator(int n){
