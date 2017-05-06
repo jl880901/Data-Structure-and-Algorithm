@@ -154,3 +154,109 @@ template<class T> void BinaryTree<T>::LevelOrder(BinaryTreeNode<T> * root) {
 			que.push(cur->right);
 	}
 }
+
+template<class T> BinarySearchTree<T>::BinarySearchTree(){
+	this->root = nullptr;
+}
+
+template<class T> BinarySearchTree<T>::~BinarySearchTree(){
+
+}
+
+template<class T> void BinarySearchTree<T>::CreateBinarySearchTree(vector<T> data){
+	for(auto element : data){
+		this->InsertNode(element);
+	}
+}
+
+template<class T> void BinarySearchTree<T>::InsertNode(T processingNode){
+	if(this->root == nullptr){
+		this->root = new BinaryTreeNode<T>(processingNode);
+		return;
+	}
+
+	BinaryTreeNode<T> *cur = this->root, *pre;
+	while(cur){
+		pre = cur;
+		if(cur->GetVal() < processingNode){
+			cur = cur->GetRightChild();
+			if(!cur){
+				cur = new BinaryTreeNode<T>(processingNode);
+				pre->right = cur;
+			}
+		}
+		else if(cur->GetVal() > processingNode){
+			cur = cur->GetLeftChild();
+			if(!cur){
+				cur = new BinaryTreeNode<T>(processingNode);
+				pre->left = cur;
+			}
+		}
+		else
+			return;
+	}
+}
+
+template<class T> void BinarySearchTree<T>::DeleteNode(BinaryTreeNode<T> * processingNode){
+	if(!processingNode)
+		return;
+	BinaryTreeNode<T> *tempPointer = nullptr;
+	BinaryTreeNode<T> *tempParent = nullptr;
+	BinaryTreeNode<T> *parent = this->Parent(processingNode);
+	if(!processingNode->GetLeftChild())
+		tempPointer = processingNode->GetRightChild();
+	else{
+		tempPointer = processingNode->GetLeftChild();
+		while(tempPointer->GetRightChild()){
+			tempParent = tempPointer;
+			tempPointer = tempPointer->GetRightChild();
+		}
+		if(tempParent){
+			tempParent->SetRightChild(tempPointer->GetLeftChild());
+			tempPointer->SetLeftChild(processingNode->GetLeftChild());
+		}
+		else
+			tempPointer->SetLeftChild(tempPointer->GetLeftChild());
+		tempPointer->SetRightChild(processingNode->GetRightChild());
+	}
+	if(!parent)
+		this->root = tempPointer;
+	else
+		if(parent->GetLeftChild() == processingNode)
+			parent->SetLeftChild(tempPointer);
+		else
+			parent->SetRightChild(tempPointer);
+
+	delete processingNode;
+	processingNode = nullptr;
+}
+
+template<class T> BinaryTreeNode<T>* BinarySearchTree<T>::Parent(BinaryTreeNode<T> * childNode){
+	if(!childNode)
+		return nullptr;
+	BinaryTreeNode<T> *cur = this->root;
+	while(cur){
+		if(cur->GetLeftChild() == childNode || cur->GetRightChild() == childNode)
+			return cur;
+		if(cur->GetVal() > childNode->GetVal())
+			cur = cur->left;
+		else
+			cur = cur->right;
+	}
+	return nullptr;
+}
+
+template<class T> BinaryTreeNode<T>* BinarySearchTree<T>::Find(T& val){
+	BinaryTreeNode<T> * res = nullptr;
+	BinaryTreeNode<T> * cur = this->root;
+	while(cur){
+		if(cur->GetVal() == val){
+			res = cur;
+			break;
+		}else if(cur->GetVal() > val)
+			cur = cur->left;
+		else
+			cur = cur->right;
+	}
+	return res;
+}

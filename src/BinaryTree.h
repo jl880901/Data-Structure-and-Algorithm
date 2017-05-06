@@ -15,6 +15,11 @@
 using namespace std;
 
 template<class T>
+class BinaryTree;
+template<class T>
+class BinarySearchTree;
+
+template<class T>
 class BinaryTree {
 public:
 	BinaryTree();
@@ -39,8 +44,23 @@ public:
 	}
 	;
 
-private:
+protected:
 	BinaryTreeNode<T>* root;
 };
 
+template<class T>
+class BinarySearchTree: public BinaryTree<T>{
+public:
+	BinarySearchTree();
+	virtual ~BinarySearchTree();
+
+	void CreateBinarySearchTree(vector<T> data);
+	void InsertNode(T processingNode);
+	void DeleteNode(BinaryTreeNode<T>* processingNode);
+	BinaryTreeNode<T>* Parent(BinaryTreeNode<T>* childNode);
+	BinaryTreeNode<T>* Find(T& val);
+};
+
 #endif /* SRC_BINARYTREE_H_ */
+
+

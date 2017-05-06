@@ -1,0 +1,13 @@
+Readme
+ Created on: 2017/4/29
+     Author: lajiao
+
+     
+Leetcode Reference List
+
+Num.	Title														File					completely match
+144		Binary Tree Preorder Traversal  							BinaryTree.cpp			Y
+145		Binary Tree Postorder Traversal								BinaryTree.cpp			Y
+102		Binary Tree Level Order Traversal							BinaryTree.cpp			N
+
+  
