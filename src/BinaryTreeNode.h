@@ -13,6 +13,7 @@ using namespace std;
 #define SRC_TREENODE_H_
 
 template<class T> class BinaryTreeNode {
+	//friend class BinaryTree<T>;
 public:
 	BinaryTreeNode();
 	BinaryTreeNode(T x) {

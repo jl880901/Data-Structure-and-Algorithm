@@ -17,6 +17,10 @@ template<class T> BinaryTreeNode<T>::~BinaryTreeNode() {
 	// TODO Auto-generated destructor stub
 }
 
+template<class T> T BinaryTreeNode<T>::GetVal() const{
+	return this->val;
+}
+
 template<class T> BinaryTreeNode<T>* BinaryTreeNode<T>::GetLeftChild() const{
 	return this->left;
 }
@@ -38,7 +42,6 @@ template<class T> void BinaryTreeNode<T>::SetValue(const T &x){
 }
 
 template<class T> T BinaryTreeNode<T>::VisitNode(){
-	if(this->val)
-		cout << this->val << " " ;
+	cout << this->val << " " ;
 	return this->val;
 }
