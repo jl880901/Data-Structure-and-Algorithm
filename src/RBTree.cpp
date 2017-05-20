@@ -88,7 +88,7 @@ template<class T> void RBTree<T>::RBTreeInsertFixup(RBTreeNode<T> * node) {
 }
 
 template<class T> void RBTree<T>::DeleteNode(RBTreeNode<T> *node) {
-
+	// to be implemented
 }
 
 template<class T> void RBTree<T>::LeftRotate(RBTreeNode<T> *node) {
@@ -134,22 +134,18 @@ template<class T> void RBTree<T>::RightRotate(RBTreeNode<T> *node) {
 	node->SetParent(leftChild);
 }
 
-template<class T> RBTreeNode<T>* RBTree<T>::Find(T& key){
+template<class T> RBTreeNode<T>* RBTree<T>::Find(T& key) {
 	RBTreeNode<T> * res = nullptr;
 	RBTreeNode<T> * cur = this->root;
-	while(cur && cur != this->sentinel){
-		if(cur->getKey() < T)
+	while (cur && cur != this->sentinel) {
+		if (cur->getKey() < key)
 			cur = cur->getRightChild();
-		else if(cur->getKey() > T)
+		else if (cur->getKey() > key)
 			cur = cur->getLeftChild();
 		else
 			return cur;
 	}
 	return res;
-}
-
-template<class T> RBTreeNode<T>* RBTree<T>::DeleteNode(RBTreeNode<T> * node){
-
 }
 
 template<class T> void RBTree<T>::PreOrder(RBTreeNode<T> * root) {
